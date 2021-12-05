@@ -14,7 +14,7 @@ To run this in a development environment, clone this repo, run `npm install`, th
 
 1.) A new web interface for instructions on how to set up everything Spotify related
 
-2.) You no longer have to write credentials into config.json, the app will ask for them each time you start up the app. This is to decrease security risks of having your password stored in a plain text file.
+2.) You no longer have to write Instagram credentials into config.json, the app will ask for them each time you start up the app. This is to decrease security risks of having your password stored in a plain text file.
 
 3.) The app is more efficient and user-friendly (hopefully)
 
