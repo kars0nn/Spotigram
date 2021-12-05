@@ -152,7 +152,7 @@ async function startServer(){
         if(!config.spotifyClientID || !config.spotifyClientSecret) {
             return res.send('Please restart the app if you have added the clientID and secret to the config. If you have not done this yet, please follow the steps on http://localhost:8000/')
         }
-        const scopes = [
+        const scopes = [ //just remembered these while looking through the code on my toilet, we don't need these, nor do we use them. I'll make a new release with most of these taken out. We just need the user-read scopes
             'user-read-playback-state',
             'user-read-currently-playing',
             'user-read-private',
