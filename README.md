@@ -1,8 +1,8 @@
 ## spotigram_v2
 
-To use the application, simply unzip the spotigram.zip file from releases, and start the application for your operating system. Spotigram will guide you throught the set up process as you go.
+To use the application, simply unzip the spotigram.zip file from releases, and start the application for your operating system. Spotigram will guide you through the set up process as you go.
 
-If you are using macOS and the app won't work, try running: 
+If you are using macOS and the app won't work, try running this in terminal: 
 
 `chmod +x /path/to/spotigram-macos`
 
