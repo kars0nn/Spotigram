@@ -18,7 +18,7 @@ To run this in a development environment, clone this repo, run `npm install`, th
 
 3.) The app is more efficient and user-friendly (hopefully)
 
-4.) Complete rewrite of v1, v1 is now private and cannot be accessed.
+4.) Complete rewrite of v1, v1 is now a public archive, don't use it lol.
 
 ## Questions and concerns:
 
