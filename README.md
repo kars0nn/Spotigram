@@ -1,4 +1,4 @@
-## spotigram_v2
+## spotigram
 
 To use the application, simply unzip the spotigram.zip file from releases, and start the application for your operating system. Spotigram will guide you through the set up process as you go.
 
