@@ -1,6 +1,6 @@
 ## spotigram
 
-# NOTICE: WHEN SETTING UP SPOTIFY: instead of http://localhost:8000/callback/ do http://localhost:8000/callback
+### NOTICE: WHEN SETTING UP SPOTIFY: instead of http://localhost:8000/callback/ do http://localhost:8000/callback
 there shouldn't be an extra '/' this will be fixed in the next update, completely my fault
 
 To use the application, simply unzip the spotigram.zip file from releases, and start the application for your operating system. Spotigram will guide you through the set up process as you go.
