@@ -1,18 +1,21 @@
 {
   "name": "spotigram",
-  "version": "b0.1",
+  "version": "1.1",
   "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "https://github.com/kars0nn",
-  "license": "ISC",
+  "license": "SEE LICENSE IN LICENSE",
   "dependencies": {
+    "colors": "^1.4.0",
     "express": "^4.17.1",
     "fs": "^0.0.1-security",
     "instagram-private-api": "^1.45.2",
+    "open": "^8.4.0",
     "path": "^0.12.7",
+    "phin": "^3.6.1",
     "prompt": "^1.2.0",
     "spotify-web-api-node": "^5.0.2"
   }
