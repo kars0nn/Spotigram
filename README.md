@@ -14,9 +14,9 @@ To run this in a development environment:
 
 1.) clone this repo
 
-2.) add your spotify client into the code
+2.) add your spotify client into the code, also make sure to change deployPath with __dirname
 
-3.) run `npm install`
+3.) run `npm install` EDIT: You need to install each dependency in command line, package.json doesn't do its job
 
 4.) run `node spotigram.js`
 
