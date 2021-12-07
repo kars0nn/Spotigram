@@ -9,10 +9,15 @@ If you are using macOS and the app won't work, try running this in terminal:
 
 
 To run this in a development environment:
+
 1.) clone this repo
+
 2.) add your spotify client into the code
+
 3.) run `npm install`
+
 4.) run `node spotigram.js`
+
 5.) If there's an error, please let me know on Discord (karson#7362)
 
 ## What's new?
