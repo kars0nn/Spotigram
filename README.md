@@ -12,32 +12,32 @@ If you are using macOS and the app won't work, try running this in terminal:
 
 To run this in a development environment:
 
-  1.) clone this repo
+ - 1.) clone this repo
 
-  2.) add your spotify client into the code, also make sure to change deployPath with __dirname
+ - 2.) add your spotify client into the code, also make sure to change deployPath with __dirname
 
-  3.) run `npm install` EDIT: You need to install each dependency in command line, package.json doesn't do its job
+ - 3.) run `npm install` EDIT: You need to install each dependency in command line, package.json doesn't do its job
 
-  4.) run `node spotigram.js`
+ - 4.) run `node spotigram.js`
 
-  5.) If there's an error, please let me know on Discord (karson#7362)
+ - 5.) If there's an error, please let me know on Discord (karson#7362)
 
 ## What's new?
 ### Version 1.1
 
-  1.) New user-friendly set up, just log in to Instagram and let Spotigram do everything else for you! (super easy set-up)
+ - 1.) New user-friendly set up, just log in to Instagram and let Spotigram do everything else for you! (super easy set-up)
 
-  2.) Update checker, this will let you know if your app is out-of-date and give you a choice to upgrade or not
+ - 2.) Update checker, this will let you know if your app is out-of-date and give you a choice to upgrade or not
 
-  3.) Lots of code clean-up
+ - 3.) Lots of code clean-up
 
-  4.) Hopefully more efficient than b0.1
+ - 4.) Hopefully more efficient than b0.1
 
-  5.) Colors!
+ - 5.) Colors!
 
-  6.) More lightweight
+ - 6.) More lightweight
 
-  7.) Start-up tips!
+ - 7.) Start-up tips!
 
 
 ## Questions and concerns:
