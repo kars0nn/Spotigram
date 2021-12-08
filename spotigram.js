@@ -17,19 +17,21 @@ const ig = new IgApiClient()
 const prompt = require('prompt');
 const colors = require('colors');
 const open = require('open')
-config = JSON.parse(require('fs').readFileSync(path.join(deployPath, 'config.json'), 'utf8'));
+// config = JSON.parse(require('fs').readFileSync(path.join(deployPath, 'config.json'), 'utf8'));
 
-// config = require('./config.json')
+config = require('./config.json')
 
 // Define lastsong, accesstoken, and refreshtoken for later use
 let lastSong;
 let accessToken;
 let refreshToken;
-const spotifyApi = new SpotifyWebApi({
+
+const spotifyApi = new SpotifyWebApi({ // define Spotify API client
     clientId: '',        // you need to set this
     clientSecret:'',     // you need to set this
     redirectUri: 'http://localhost:8000/callback'
 });
+
 let version = '1.1'
 
 async function tryLogin(u, p) {
@@ -51,7 +53,7 @@ async function tryLogin(u, p) {
             replace: '*'
         }]);
 
-        return login(username, password);
+        return login(username, password);   // go to login() function with given params
     } else {
         setTimeout(() => {
             process.exit()
@@ -81,18 +83,17 @@ async function login(u, p) {
     console.log('Logging in to Instagram...'.italic.grey)
     ig.state.generateDevice(u)
 
-    await ig.simulate.preLoginFlow();
+    await ig.simulate.preLoginFlow();   // simulates login flow so Instagram doesn't block you respond with an error
 
     try {
         loggedInUser = await ig.account.login(u, p);
     } catch (err) {
         console.error('Something went wrong while logging in (incorrect username or password?), Try again!'.red)
-        console.error('- If your account has 2fa/mfa, support for this will come in futre updates. Stay tuned!'.yellow)
-        console.error(`err'.red);
+        console.error('- If your account has 2fa/mfa, support for this will come in future updates. Stay tuned!'.yellow)
+        console.error(`err`.red);
 
         return tryLogin();
     }
-
 
     process.nextTick(async () => await ig.simulate.postLoginFlow());
     console.log("Logged in successfully! Make sure to trust the new device on your actual instagram app if you haven't already.".italic.grey)
@@ -192,18 +193,12 @@ async function get() {        // main bio update function
     }
 }
 
-/***
-Dear, this code is so bad...
-
-Saint Michael the Archangel, defend us in battle.
-Be our protection against the wickedness and snares of the devil;
-May God rebuke him, we humbly pray;
-And do thou, O Prince of the Heavenly Host, by the power of God,
-thrust into hell Satan and all evil spirits who wander through the world for the ruin of souls.
-Amen.
-***/
-
 async function startServer(){        // web server for direct links and callback for spotify auth (callback needs to stay callback)
+
+    app.get('/', (req, res) => {
+        res.send('hello!')
+    })
+
     app.get('/link', (req, res) => {
         res.redirect('https://accounts.spotify.com/authorize?client_id=9459e0d038db4b2a98554eb5b085adaf&response_type=code&redirect_uri=http://localhost:8000/callback&scope=user-read-playback-state%20user-read-currently-playing%20user-top-read%20user-read-recently-played')
     })
@@ -214,14 +209,16 @@ async function startServer(){        // web server for direct links and callback
             .then(data => {
                 const access_token = data.body['access_token'];
                 const refresh_token = data.body['refresh_token'];
-
-                accessToken = access_token //set local access token vars so we don't have to restart
+                
+                // set local access token vars so we don't have to restart
+                accessToken = access_token 
                 refreshToken = refresh_token
-
-                config.accessToken = access_token // change values in config and then ->
+                
+                // this will change values in config and then ->
+                config.accessToken = access_token
                 config.refreshToken = refresh_token
 
-                fs.writeFile(path.join(deployPath, 'config.json'), JSON.stringify(config, null, 2), (err) => { // write newly defined tokens to config.json
+                fs.writeFile(path.join(__dirname, 'config.json'), JSON.stringify(config, null, 2), (err) => { // write newly defined tokens to config.json
                     if (err) throw err;
                 });
 
@@ -230,8 +227,7 @@ async function startServer(){        // web server for direct links and callback
 
                 // TODO: shove this into a file or something
                 return res.send(`<!DOCTYPE html> <html lang="en"> <head> <meta charset="UTF-8"> <meta http-equiv="X-UA-Compatible" content="IE=edge"> <meta name="viewport" content="width=device-width, initial-scale=1.0"> <title>Spotigram</title> </head> <body style="background-color: rgb(29, 29, 29); color: white; font-family: Arial, Helvetica, sans-serif;"> <br> <br> <br> <div style="text-align: center;"> <h1>Spotify account linked successfully!</h1><p><i>you can go back to whatever you were doing now!</i></p> <br> <br> <br> <p>Thank you for using my app, Enjoy!</p> <i> <a href="https://github.com/kars0nn" style="text-decoration: none; color: rgb(0, 183, 255);"> ~ karson </a> <a style="color: rgb(255, 0, 170);">:3</a> </i> </div> </body> </html>`)
-            })
-            .catch(error) => {
+            }).catch((error) => {
                 res.send('Something went wrong while authorizing your code!')
                 console.error(error)
             })
@@ -244,10 +240,10 @@ async function startServer(){        // web server for direct links and callback
     app.listen(8000);
 }
 
-async function checkForUpdates(){ //checks for updates and lets user know if they are up to date or not
+async function checkForUpdates(){ // checks for updates and lets user know if they are up to date or not
     const p = require('phin')
 
-    const res = await p('https://wsdpanthers.net/spoti_ver')//update page
+    const res = await p('https://wsdpanthers.net/spoti_ver')    // update page
     let j = JSON.parse(res.body)
     if (j.version === version) {
         console.log('Spotigram is up to date! {v1.1}'.italic.grey)
@@ -261,7 +257,7 @@ async function checkForUpdates(){ //checks for updates and lets user know if the
             description:'yes / no'
         }]);
         if(quest === 'yes') {
-            open('https://github.com/kars0nn/Spotigram/releases')
+            open('https://github.com/kars0nn/Spotigram/releases')   // opens the newest release in browser
             return true;
         } else {
             console.log('OK')
