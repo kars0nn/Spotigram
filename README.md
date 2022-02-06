@@ -1,6 +1,6 @@
-## spotigram
+# spotigram
 
-!Notice: Until I get a CA server set up, the exe will be unsigned, which means windows will tell you it "protected your pc," this isn't anything bad. It just means that it couldn't find a certificate, you can click "More Info" and then "Run anyway"
+## !Notice: Until I get a CA server set up, the exe will be unsigned, which means windows will tell you it "protected your pc," this isn't anything bad. It just means that it couldn't find a certificate, you can click "More Info" and then "Run anyway"
 
 To use the application, simply unzip the spotigram.zip file from releases, and start the application for your operating system. Spotigram will do everything for you, you just have to allow Spotigram access.
 
